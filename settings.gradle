@@ -1,0 +1,3 @@
+include ':app', ':spinkit'
+rootProject.name='CustomProgressDialog'
+include ':zProgressHUD'
