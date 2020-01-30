@@ -1,4 +1,4 @@
-package com.quebotic.customprogressdialog
+package com.quebotic.customprogressdialog.helper
 
 interface SHelper {
 

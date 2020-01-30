@@ -1,7 +1,7 @@
 package com.quebotic.sjchelp.utils
 
 import android.content.Context
-import com.quebotic.customprogressdialog.CommonValues
+import com.quebotic.customprogressdialog.utils.CommonValues
 import com.thuongnh.zprogresshud.ZProgressHUD
 
 class ZProgressHUDBar(context: Context) {

@@ -2,8 +2,6 @@ package com.quebotic.sjchelp.utils
 
 import android.content.Context
 import com.kaopiz.kprogresshud.KProgressHUD
-import com.quebotic.customprogressdialog.CommonValues
-import com.thuongnh.zprogresshud.ZProgressHUD
 
 class KProgressHUDBar(context: Context) {
 

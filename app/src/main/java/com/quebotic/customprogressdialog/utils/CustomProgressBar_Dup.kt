@@ -1,4 +1,4 @@
-package com.quebotic.customprogressdialog
+package com.quebotic.customprogressdialog.utils
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -12,9 +12,10 @@ import android.os.Build
 import android.view.LayoutInflater
 import androidx.annotation.NonNull
 import androidx.core.content.res.ResourcesCompat
+import com.quebotic.customprogressdialog.R
 import kotlinx.android.synthetic.main.custom_progress_layout_2.view.*
 
-class CustomProgressBar_Backup {
+class CustomProgressBar_Dup {
     lateinit var dialog: Dialog
 
     fun show(context: Context): Dialog {
@@ -31,10 +32,13 @@ class CustomProgressBar_Backup {
         view.cp_bg_view.setBackgroundColor(Color.parseColor("#60000000")) //Background Color
         view.cp_cardview.setCardBackgroundColor(Color.parseColor("#70000000")) //Box Color
         setColorFilter(view.cp_pbar.indeterminateDrawable,
-            ResourcesCompat.getColor(context.resources, R.color.colorPrimary, null)) //Progress Bar Color
+            ResourcesCompat.getColor(context.resources,
+                R.color.colorPrimary, null)) //Progress Bar Color
         view.cp_title.setTextColor(Color.WHITE) //Text Color
 
-        dialog = Dialog(context, R.style.CustomProgressBarTheme)
+        dialog = Dialog(context,
+            R.style.CustomProgressBarTheme
+        )
         dialog.setContentView(view)
         dialog.show()
 

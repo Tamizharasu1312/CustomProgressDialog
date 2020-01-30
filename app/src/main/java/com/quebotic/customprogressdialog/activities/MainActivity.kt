@@ -1,13 +1,13 @@
-package com.quebotic.customprogressdialog
+package com.quebotic.customprogressdialog.activities
 
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.quebotic.customprogressdialog.CommonValues.PROGRESSSUCCESS
+import com.quebotic.customprogressdialog.R
+import com.quebotic.customprogressdialog.utils.CustomProgressBar
 import com.quebotic.sjchelp.utils.KProgressHUDBar
-import com.quebotic.sjchelp.utils.ZProgressHUDBar
 import com.thuongnh.zprogresshud.ZProgressHUD
 
 
@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
     private var mContext: Context? = null
 
     //val progressBar = CustomProgressBar()
-    val mProgressBar = CustomProgressBar()
+    val mProgressBar =
+        CustomProgressBar()
     var progressHUD: ZProgressHUD? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

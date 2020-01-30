@@ -1,4 +1,4 @@
-package com.quebotic.customprogressdialog
+package com.quebotic.customprogressdialog.utils
 
 
 import android.annotation.SuppressLint
@@ -6,25 +6,14 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
-import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.view.LayoutInflater
-import android.view.View
-import android.view.Window
-import android.webkit.WebView
-import android.widget.LinearLayout
 import android.widget.ProgressBar
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
-import com.github.ybq.android.spinkit.sprite.Sprite
-import com.github.ybq.android.spinkit.style.DoubleBounce
-import kotlinx.android.synthetic.main.custom_progress_layout_2.view.*
+import com.quebotic.customprogressdialog.R
 
 
 class CustomProgressBar {
@@ -46,7 +35,9 @@ class CustomProgressBar {
         // setColorFilter(view.cp_pbar.indeterminateDrawable, ResourcesCompat.getColor(context.resources, R.color.colorPrimary, null)) //Progress Bar Color
         // myLoadingTxt.setTextColor(Color.BLACK) //Text Color
 
-        dialog = Dialog(context, R.style.CustomProgressBarTheme)
+        dialog = Dialog(context,
+            R.style.CustomProgressBarTheme
+        )
         dialog.setContentView(view)
         dialog.show()
 

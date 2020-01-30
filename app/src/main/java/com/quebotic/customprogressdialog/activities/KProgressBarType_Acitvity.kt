@@ -1,4 +1,4 @@
-package com.quebotic.customprogressdialog
+package com.quebotic.customprogressdialog.activities
 
 import android.content.Context
 import android.content.DialogInterface
@@ -11,9 +11,10 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kaopiz.kprogresshud.KProgressHUD
+import com.quebotic.customprogressdialog.R
 
 
-class MainActivity_2 : AppCompatActivity() ,View.OnClickListener{
+class KProgressBarType_Acitvity : AppCompatActivity() ,View.OnClickListener{
 
 
     private var mContext: Context? = null
@@ -21,7 +22,7 @@ class MainActivity_2 : AppCompatActivity() ,View.OnClickListener{
     private var hud: KProgressHUD? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_2)
+        setContentView(R.layout.kprogress_types_layout)
         mContext = this
 
         val indeterminate: Button = findViewById(R.id.indeterminate) as Button
@@ -71,7 +72,7 @@ class MainActivity_2 : AppCompatActivity() ,View.OnClickListener{
                     .setCancellable(DialogInterface.OnCancelListener {
                         fun onCancel(dialogInterface: DialogInterface?) {
                             Toast.makeText(
-                                this@MainActivity_2, "You " +
+                                this@KProgressBarType_Acitvity, "You " +
                                         "cancelled manually!", Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -92,20 +93,20 @@ class MainActivity_2 : AppCompatActivity() ,View.OnClickListener{
                 scheduleDismiss()
             }
             R.id.determinate -> {
-                hud = KProgressHUD.create(this@MainActivity_2)
+                hud = KProgressHUD.create(this@KProgressBarType_Acitvity)
                     .setStyle(KProgressHUD.Style.PIE_DETERMINATE)
                     .setLabel("Please wait")
                 simulateProgressUpdate()
             }
             R.id.annular_determinate -> {
-                hud = KProgressHUD.create(this@MainActivity_2)
+                hud = KProgressHUD.create(this@KProgressBarType_Acitvity)
                     .setStyle(KProgressHUD.Style.ANNULAR_DETERMINATE)
                     .setLabel("Please wait")
                     .setDetailsLabel("Downloading data")
                 simulateProgressUpdate()
             }
             R.id.bar_determinate -> {
-                hud = KProgressHUD.create(this@MainActivity_2)
+                hud = KProgressHUD.create(this@KProgressBarType_Acitvity)
                     .setStyle(KProgressHUD.Style.BAR_DETERMINATE)
                     .setLabel("Please wait")
                 simulateProgressUpdate()
