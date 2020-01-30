@@ -4,14 +4,12 @@ import android.content.Context
 import com.quebotic.customprogressdialog.CommonValues
 import com.thuongnh.zprogresshud.ZProgressHUD
 
-class CustomProgressBar2(context: Context) {
+class ZProgressHUDBar(context: Context) {
 
-    // mProgressBar: ZProgressHUD? = null
-    var  mProgressBar = ZProgressHUD.getInstance(context)
+    var mProgressBar = ZProgressHUD.getInstance(context)
 
 
-     fun intProgressBar(aContext: Context,aProgressType:Int, aMessage: String) {
-        mProgressBar = ZProgressHUD.getInstance(aContext)
+     fun intProgressBar(aProgressType:Int, aMessage: String) {
         mProgressBar!!.setSpinnerType(aProgressType)
         mProgressBar!!.setMessage(aMessage)
         mProgressBar!!.show()

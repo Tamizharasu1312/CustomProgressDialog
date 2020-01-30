@@ -49,6 +49,7 @@ dependencies {
 
     //SpinKit
     implementation project(':spinkit')
+    implementation project(':kprogresshud')
     implementation project(':zProgressHUD')
     implementation 'com.wang.avi:library:2.1.3'
 

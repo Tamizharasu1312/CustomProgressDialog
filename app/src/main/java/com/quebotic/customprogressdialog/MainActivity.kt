@@ -6,7 +6,8 @@ import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.quebotic.customprogressdialog.CommonValues.PROGRESSSUCCESS
-import com.quebotic.sjchelp.utils.CustomProgressBar2
+import com.quebotic.sjchelp.utils.KProgressHUDBar
+import com.quebotic.sjchelp.utils.ZProgressHUDBar
 import com.thuongnh.zprogresshud.ZProgressHUD
 
 
@@ -35,10 +36,12 @@ class MainActivity : AppCompatActivity() {
             progressHUD!!.setSpinnerType(2)
             progressHUD!!.show()*/
 
-            CustomProgressBar2(mContext!!).intProgressBar(mContext!!,1,"Please Wait...")
+            //ZProgressHUDBar(mContext!!).intProgressBar(1,"Please Wait...")
+            KProgressHUDBar(mContext!!).intProgressBar(1,"Please Wait...")
             Handler().postDelayed({
                 //progressHUD!!.dismissWithFailure("Spoil")
-                CustomProgressBar2(mContext!!).dismissProgressbar(PROGRESSSUCCESS,PROGRESSSUCCESS)
+                //ZProgressHUDBar(mContext!!).dismissProgressbar(PROGRESSSUCCESS,PROGRESSSUCCESS)
+                KProgressHUDBar(mContext!!).dismissProgressbar()
             },3000)
 
         }
