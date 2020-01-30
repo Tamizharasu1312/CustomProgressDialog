@@ -1,11 +1,12 @@
 package com.quebotic.customprogressdialog
 
-
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.quebotic.customprogressdialog.CommonValues.PROGRESSSUCCESS
+import com.quebotic.sjchelp.utils.CustomProgressBar2
 import com.thuongnh.zprogresshud.ZProgressHUD
 
 
@@ -22,8 +23,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //mContext = applicationContext
         mContext = this
 
 
@@ -32,17 +31,14 @@ class MainActivity : AppCompatActivity() {
         mbtHide = findViewById(R.id.bt_hide)
 
         mbtShow!!.setOnClickListener {
-            progressHUD!!.setMessage("Please Wait...")
+            /*progressHUD!!.setMessage("Please Wait...")
             progressHUD!!.setSpinnerType(2)
-            progressHUD!!.show()
+            progressHUD!!.show()*/
 
-            //mProgressBar.show(this, "Please Wait...")
+            CustomProgressBar2(mContext!!).intProgressBar(mContext!!,1,"Please Wait...")
             Handler().postDelayed({
-                //Dismiss progress bar after 4 seconds
-               // progressBar.dialog.dismiss()
-                //mProgressBar.dismiss()
-               // progressHUD!!.dismissWithSuccess("Done")
-                progressHUD!!.dismissWithFailure("Spoil")
+                //progressHUD!!.dismissWithFailure("Spoil")
+                CustomProgressBar2(mContext!!).dismissProgressbar(PROGRESSSUCCESS,PROGRESSSUCCESS)
             },3000)
 
         }
