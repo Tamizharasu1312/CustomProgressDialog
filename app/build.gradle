@@ -51,6 +51,7 @@ dependencies {
     implementation project(':spinkit')
     implementation project(':kprogresshud')
     implementation project(':zProgressHUD')
+    implementation project(':avloadingindicatorview')
     implementation 'com.wang.avi:library:2.1.3'
 
 

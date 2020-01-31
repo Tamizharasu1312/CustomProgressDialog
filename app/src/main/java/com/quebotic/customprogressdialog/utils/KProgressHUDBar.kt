@@ -1,7 +1,9 @@
 package com.quebotic.sjchelp.utils
 
 import android.content.Context
+import android.os.Handler
 import com.kaopiz.kprogresshud.KProgressHUD
+
 
 class KProgressHUDBar(context: Context) {
 
@@ -22,5 +24,8 @@ class KProgressHUDBar(context: Context) {
 
     }
 
-
+     fun scheduleDismiss() {
+        val handler = Handler()
+        handler.postDelayed({ aKProgressHUD.dismiss() }, 1000)
+    }
 }
