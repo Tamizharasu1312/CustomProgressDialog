@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var mContext: Context? = null
 
     //val progressBar = CustomProgressBar()
-    val mProgressBar =
-        CustomProgressBar()
+    val mProgressBar = CustomProgressBar()
     var progressHUD: ZProgressHUD? = null
     var mKProgressHUD: KProgressHUD? = null
     val mPBAVProgress = CustomAVProgressBar()

@@ -325,13 +325,19 @@ public class KProgressHUD {
     }
 
     public void dismiss() {
-        mFinished = true;
-        if (mContext != null && mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-        }
-        if (mGraceTimer != null) {
-            mGraceTimer.removeCallbacksAndMessages(null);
-            mGraceTimer = null;
+        try {
+            mFinished = true;
+            if (mContext != null && mProgressDialog != null && mProgressDialog.isShowing()) {
+                mProgressDialog.dismiss();
+            }
+            if (mGraceTimer != null) {
+                mGraceTimer.removeCallbacksAndMessages(null);
+                mGraceTimer = null;
+            }else{
+                mProgressDialog.dismiss();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
