@@ -11,10 +11,11 @@ import com.quebotic.customprogressdialog.R
 import kotlinx.android.synthetic.main.custom_av_progress_bar_layout.view.*
 
 
-class CustomAVProgressBar {
+class CustomAVProgressBar(context: Context) {
 
     lateinit var dialog: Dialog
 
+    val mContext=context
     var aMessageTV: TextView? = null
 
     fun show(context: Context): Dialog {
@@ -23,7 +24,7 @@ class CustomAVProgressBar {
 
     @SuppressLint("InflateParams")
     fun show(context: Context, title: CharSequence?): Dialog {
-        val inflator = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflator = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflator.inflate(R.layout.custom_av_progress_bar_layout, null)
         aMessageTV = view.findViewById(R.id.message_tv)
         if (title != null) {
@@ -33,7 +34,7 @@ class CustomAVProgressBar {
         view.cp_cardview.setCardBackgroundColor(Color.parseColor("#70000000")) //Box Color
         aMessageTV!!.setTextColor(Color.WHITE) //Text Color
 
-        dialog = Dialog(context, R.style.CustomProgressBarTheme)
+        dialog = Dialog(mContext, R.style.CustomProgressBarTheme)
         dialog.setContentView(view)
         dialog.show()
 
@@ -43,7 +44,7 @@ class CustomAVProgressBar {
     fun dismissWithSuccess(aMessage: String) {
         aMessageTV!!.text = aMessage
         Handler().postDelayed({
-            dialog.dismiss()
+           dialog.dismiss()
         }, 2000)
     }
 

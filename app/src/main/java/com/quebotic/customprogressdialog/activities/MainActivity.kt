@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     val mProgressBar = CustomProgressBar()
     var progressHUD: ZProgressHUD? = null
     var mKProgressHUD: KProgressHUD? = null
-    val mPBAVProgress = CustomAVProgressBar()
+    val mPBAVProgress = CustomAVProgressBar(this@MainActivity)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
             Handler().postDelayed({
                 mPBAVProgress.dismissWithSuccess("Success")
-                //  progressBar!!.dialog.dismiss()
+               // mPBAVProgress.dialog.dismiss()
             }, 500)
          /*   *//*progressHUD!!.setMessage("Please Wait...")
             progressHUD!!.setSpinnerType(2)
