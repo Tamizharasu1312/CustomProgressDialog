@@ -1,13 +1,15 @@
 package com.quebotic.customprogressdialog.utils
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.annotation.SuppressLint
+import android.os.CountDownTimer
 import android.os.Handler
+import android.view.LayoutInflater
 import android.widget.TextView
 import com.quebotic.customprogressdialog.R
+import com.quebotic.customprogressdialog.activities.MainActivity
 import kotlinx.android.synthetic.main.custom_av_progress_bar_layout.view.*
 
 
@@ -15,11 +17,11 @@ class CustomAVProgressBar(context: Context) {
 
     lateinit var dialog: Dialog
 
-    val mContext=context
+    val mContext = context
     var aMessageTV: TextView? = null
 
     fun show(context: Context): Dialog {
-        return show(context, null)
+        return show(mContext, null)
     }
 
     @SuppressLint("InflateParams")
@@ -42,17 +44,41 @@ class CustomAVProgressBar(context: Context) {
     }
 
     fun dismissWithSuccess(aMessage: String) {
-        aMessageTV!!.text = aMessage
-        Handler().postDelayed({
-           dialog.dismiss()
-        }, 2000)
+      //  aMessageTV!!.text = aMessage
+        dialog.dismiss()
+
+    }
+    fun setProgressMessage(aMessage: String){
+        if (aMessage != null) {
+            aMessageTV!!.text = aMessage
+        }
     }
 
     fun dismissWithFailure(aMessage: String) {
         aMessageTV!!.text = aMessage
-
         Handler().postDelayed({
             dialog.dismiss()
         }, 2000)
     }
+
+    fun dismissProgressbar(
+        aType: String,
+        aMessage: String
+    ) {
+        when (aType) {
+
+            CommonValues.PROGRESSSUCCESS -> {
+
+                dialog.dismiss()
+              //  dismissWithSuccess(aMessage)
+            }
+            CommonValues.PROGRESSFAILURE -> {
+                dismissWithFailure(aMessage)
+
+            }
+
+        }
+
+    }
+
 }

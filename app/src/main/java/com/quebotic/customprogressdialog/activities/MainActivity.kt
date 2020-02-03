@@ -1,15 +1,17 @@
 package com.quebotic.customprogressdialog.activities
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.quebotic.customprogressdialog.R
+import com.quebotic.customprogressdialog.utils.CommonValues
+import com.quebotic.customprogressdialog.utils.CommonValues.PROGRESSSUCCESS
 import com.quebotic.customprogressdialog.utils.CustomAVProgressBar
 import com.quebotic.customprogressdialog.utils.CustomProgressBar
-import com.quebotic.customprogressdialog.utils.ProgressDialogs
 import com.thuongnh.zprogresshud.ZProgressHUD
 
 
@@ -18,8 +20,6 @@ class MainActivity : AppCompatActivity() {
     private var mbtShow: Button? = null
     private var mbtHide: Button? = null
     private var mContext: Context? = null
-
-    //val progressBar = CustomProgressBar()
     val mProgressBar = CustomProgressBar()
     var progressHUD: ZProgressHUD? = null
     var mKProgressHUD: KProgressHUD? = null
@@ -39,15 +39,25 @@ class MainActivity : AppCompatActivity() {
 
         mbtShow!!.setOnClickListener {
 
-            mPBAVProgress.show(
-                this,
-                "Please Wait..."
-            )
+            mPBAVProgress.show(this, "Please Wait...")
 
+            mPBAVProgress.setProgressMessage(PROGRESSSUCCESS)
+           // mPBAVProgress.dismissProgressbar(PROGRESSSUCCESS,PROGRESSSUCCESS)
             Handler().postDelayed({
-                mPBAVProgress.dismissWithSuccess("Success")
-               // mPBAVProgress.dialog.dismiss()
-            }, 500)
+                mPBAVProgress.dismissProgressbar(PROGRESSSUCCESS,PROGRESSSUCCESS)
+            startActivity(Intent(this@MainActivity, MainActivity_2::class.java))
+            finish()
+            }, 2000)
+
+            /*mPBAVProgress.dismissProgressbar(
+                CommonValues.PROGRESSFAILURE,
+                CommonValues.PROGRESSFAILURE
+            )*/
+          /*  if(!mPBAVProgress.isShowing()){
+                startActivity(Intent(this@MainActivity, MainActivity_2::class.java))
+                finish()
+            }*/
+
          /*   *//*progressHUD!!.setMessage("Please Wait...")
             progressHUD!!.setSpinnerType(2)
             progressHUD!!.show()*//*
